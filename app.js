@@ -103,8 +103,8 @@ function winOrLose(){
     }else if(cpuImg.id == 1){
         playerImg.id == 2 ? headerAlert.textContent = 'You Win' : headerAlert.textContent = 'CPU Win'
         
-    }else if(cpuImg.id == 1){
-        playerImg.id == 0 ? headerAlert.textContent = 'You Win' : headerAlert.textContent = 'CPU Win'
+    }else if(cpuImg.id == 0){
+        playerImg.id == 1 ? headerAlert.textContent = 'You Win' : headerAlert.textContent = 'CPU Win'
         
     }   
 }
@@ -118,8 +118,8 @@ function scorePlus(){
     }else if(cpuImg.id == 1){
         playerImg.id == 2 ? playerScore.innerText = pscore += 1: playerScore.innerText = cscore += 1
         
-    }else if(cpuImg.id == 1){
-        playerImg.id == 0 ? playerScore.innerText = pscore += 1: playerScore.innerText = cscore += 1
+    }else if(cpuImg.id == 0){
+        playerImg.id == 1 ? playerScore.innerText = pscore += 1: playerScore.innerText = cscore += 1
         
     }
     playerScore.innerText = pscore;
