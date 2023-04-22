@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vmin;
+    background-color: black;
+}
+
+#gameDisplay{
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    width: 90%;
+    height: 600PX;
+    background-color: white;
+    display: flex;
+    position: relative;
+    overflow: auto;
+    font-family: sans-serif;
+}
+
+#container .winOrLose {
+    width: 400px;
+    height: 50px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px ;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#container .player{
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.800);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#container .player>img{
+    transform: rotate(90deg);
+    display: flex;
+}
+
+#container .player #playerScore{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 60px;
+    color: white;
+}
+
+#container .player #playerText{
+    position: absolute;
+    bottom: 70px;
+    font-size: 30px;
+    color: white;
+}
+
+
+#container .cpu{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 255, 0.800);
+}
+#container .cpu>img{
+    transform: rotate(-90deg) scaleX(-1);
+}
+#container .cpu #cpuScore{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 60px;
+    color: white;
+}
+
+#container .cpu #cpuText{
+    position: absolute;
+    bottom: 70px;
+    font-size: 30px;
+    color: white;
+}
+
+button{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(164, 67, 255, 0.559);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.playerAnimation{
+    animation: player .5s ease-in-out infinite;
+    
+}
+.cpuAnimation{
+    animation: cpu .5s ease-in-out infinite;
+    
+}
+
+@keyframes player {
+    from{
+        transform: rotate(60deg);
+    }
+    
+    to{
+        transform: rotate(120deg);
+    }
+}
+
+@keyframes cpu {
+    from{
+        transform: rotate(-60deg) scaleX(-1);
+    }
+    
+    to{
+        transform: rotate(-120deg) scaleX(-1);
+    }
+}
