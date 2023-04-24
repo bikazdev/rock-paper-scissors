@@ -24,7 +24,7 @@ function startBtn() {
     
     // We loop over the photos to select them
     playerSelection.forEach(function (e, i) {
-
+        
         // Attributing presentation indexes as IDs
         e.id = i
 
@@ -118,8 +118,11 @@ startBtn()
 
 
 function btn() {
+    isTrue = true
     player()
     cpu()
+   
+    
     // Due to the use of hand animation, the result is placed in setTimeout
     setTimeout(function () {
         winOrLose()
@@ -159,10 +162,11 @@ function player() {
             }
             playerImg.classList.remove('playerAnimation')
             clearTimeout(playerTimeOut)
+            isTrue = false
         }, 2000)
-
     }
 
+    
 }
 
 function cpu() {
@@ -171,32 +175,33 @@ function cpu() {
         cpuImg.classList.add('cpuAnimation')
         cpuImg.src = 'img/rock.png'
         cpuText.textContent = ""
-        
+        isTrue = false
     }, 1)
 
-    setTimeout(function () {
-        
-        switch (random) {
-            case 0:
-                cpuImg.src = 'img/rock.png'
-                cpuText.textContent = 'Rock'
-                cpuImg.id = 0
-                break;
-            case 1:
-                cpuImg.src = 'img/paper.png'
-                cpuText.textContent = 'Paper'
-                cpuImg.id = 1
-                break;
-            case 2:
-                cpuImg.src = 'img/scissor.png'
-                cpuText.textContent = 'Scissor'
-                cpuImg.id = 2
-                break;
-
-        }
-        cpuImg.classList.remove('cpuAnimation')
-        clearTimeout(cpuTimeOut)
-    }, 2000)
+    if(isTrue){
+        setTimeout(function () {
+            switch (random) {
+                case 0:
+                    cpuImg.src = 'img/rock.png'
+                    cpuText.textContent = 'Rock'
+                    cpuImg.id = 0
+                    break;
+                case 1:
+                    cpuImg.src = 'img/paper.png'
+                    cpuText.textContent = 'Paper'
+                    cpuImg.id = 1
+                    break;
+                case 2:
+                    cpuImg.src = 'img/scissor.png'
+                    cpuText.textContent = 'Scissor'
+                    cpuImg.id = 2
+                    break;
+            }
+            cpuImg.classList.remove('cpuAnimation')
+            clearTimeout(cpuTimeOut)
+            isTrue = false
+        }, 2000)
+    }
 }
 
 function winOrLose() {
@@ -214,4 +219,5 @@ function winOrLose() {
     }
     playerScore.innerText = pscore;
     cpuScore.innerText = cscore;
+
 }
